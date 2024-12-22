@@ -1,0 +1,86 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.37.0.
+--
+-- see: https://github.com/sol/hpack
+
+name:           hackup
+version:        0.1.0.0
+description:    Functionalities for modeling and processing SGML/XML in Haskell's syntax
+homepage:       https://github.com/thyringer/haskell#readme
+bug-reports:    https://github.com/thyringer/haskell/issues
+author:         Enrico Rippin
+maintainer:     post@rippin.org
+copyright:      2023 Enrico Rippin
+license:        BSD0
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    CHANGELOG.md
+
+source-repository head
+  type: git
+  location: https://github.com/thyringer/haskell
+  subdir: hackup
+
+library
+  exposed-modules:
+      Hackup
+      Hackup.Html
+      Hackup.Html.Attribute
+      Main
+  other-modules:
+      Paths_hackup
+  hs-source-dirs:
+      src
+  default-extensions:
+      Arrows, BinaryLiterals, ConstraintKinds, DataKinds, DeriveDataTypeable, DuplicateRecordFields, ExistentialQuantification, FlexibleInstances, FlexibleContexts, ForeignFunctionInterface, FunctionalDependencies, GADTs, ImplicitParams, KindSignatures, MagicHash, MultiParamTypeClasses, MultiWayIf, NegativeLiterals, OverloadedRecordDot, OverloadedStrings, PolyKinds, Rank2Types, RankNTypes, ScopedTypeVariables, TupleSections, TypeFamilies, ViewPatterns
+  ghc-options: -fno-warn-tabs
+  build-depends:
+      base
+    , containers
+    , scotty
+    , text
+    , text-show
+  default-language: Haskell2010
+
+executable hackup-exe
+  main-is: Main.hs
+  other-modules:
+      Hackup
+      Hackup.Html
+      Hackup.Html.Attribute
+      Paths_hackup
+  hs-source-dirs:
+      src
+  default-extensions:
+      Arrows, BinaryLiterals, ConstraintKinds, DataKinds, DeriveDataTypeable, DuplicateRecordFields, ExistentialQuantification, FlexibleInstances, FlexibleContexts, ForeignFunctionInterface, FunctionalDependencies, GADTs, ImplicitParams, KindSignatures, MagicHash, MultiParamTypeClasses, MultiWayIf, NegativeLiterals, OverloadedRecordDot, OverloadedStrings, PolyKinds, Rank2Types, RankNTypes, ScopedTypeVariables, TupleSections, TypeFamilies, ViewPatterns
+  ghc-options: -fno-warn-tabs -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base
+    , containers
+    , hackup
+    , scotty
+    , text
+    , text-show
+  default-language: Haskell2010
+
+test-suite hackup-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_hackup
+  hs-source-dirs:
+      test
+  default-extensions:
+      Arrows, BinaryLiterals, ConstraintKinds, DataKinds, DeriveDataTypeable, DuplicateRecordFields, ExistentialQuantification, FlexibleInstances, FlexibleContexts, ForeignFunctionInterface, FunctionalDependencies, GADTs, ImplicitParams, KindSignatures, MagicHash, MultiParamTypeClasses, MultiWayIf, NegativeLiterals, OverloadedRecordDot, OverloadedStrings, PolyKinds, Rank2Types, RankNTypes, ScopedTypeVariables, TupleSections, TypeFamilies, ViewPatterns
+  ghc-options: -fno-warn-tabs -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base
+    , containers
+    , hackup
+    , scotty
+    , text
+    , text-show
+  default-language: Haskell2010

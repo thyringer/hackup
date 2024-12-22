@@ -1,0 +1,57 @@
+name:                hackup
+version:             0.1.0.0
+github:              "thyringer/haskell/hackup"
+license:             BSD0
+author:              "Enrico Rippin"
+maintainer:          "post@rippin.org"
+copyright:           "2023 Enrico Rippin"
+
+extra-source-files:
+- README.md
+- CHANGELOG.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description: Functionalities for modeling and processing SGML/XML in Haskell's syntax
+
+default-extensions: Arrows, BinaryLiterals, ConstraintKinds, DataKinds, DeriveDataTypeable, DuplicateRecordFields, ExistentialQuantification, FlexibleInstances, FlexibleContexts, ForeignFunctionInterface, FunctionalDependencies, GADTs, ImplicitParams, KindSignatures, MagicHash, MultiParamTypeClasses, MultiWayIf, NegativeLiterals, OverloadedRecordDot, OverloadedStrings, PolyKinds, Rank2Types, RankNTypes, ScopedTypeVariables, TupleSections, TypeFamilies, ViewPatterns
+
+dependencies:
+- base
+- containers
+- scotty
+- text
+- text-show
+
+ghc-options:
+- -fno-warn-tabs
+
+library:
+  source-dirs: src
+
+executables:
+  hackup-exe:
+    main:                Main.hs
+    source-dirs:         src
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - hackup
+
+tests:
+  hackup-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - hackup
